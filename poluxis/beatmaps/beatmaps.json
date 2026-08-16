@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "type": "album",
+      "id": "ad_rent",
+      "title": "广告位招租",
+      "artist": "Ad space for rent",
+      "accentColor": "#ff7f00",
+      "songs": []
+    }
+  ]
+}
