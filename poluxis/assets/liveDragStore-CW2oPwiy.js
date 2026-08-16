@@ -1,1 +1,0 @@
-import{b as o}from"./vendor-BnjS516T.js";let t=null;const r=new Set;function s(){for(const e of r)e()}const n={getSnapshot:()=>t,subscribe:e=>(r.add(e),()=>{r.delete(e)}),set:e=>{t&&t.id===e.id&&t.x===e.x&&t.y===e.y&&t.beat===e.beat||(t=e,s())},clear:()=>{t!==null&&(t=null,s())}};function l(){return o.useSyncExternalStore(n.subscribe,n.getSnapshot)}export{n as l,l as u};
