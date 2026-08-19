@@ -374,12 +374,23 @@
         <span class="val" id="val-sfx">90%</span>
       </div>
       <div class="modal-row" style="align-items:center;">
+        <label data-i18n="setCompat" style="margin-right:8px;">兼容模式（谱面独立时钟）</label>
+        <input type="checkbox" id="set-compat" style="width:18px;height:18px;accent-color:#22d3ee;">
+      </div>
+      <div class="modal-row" style="align-items:center;">
         <label data-i18n="lang" style="margin-right:8px;">语言</label>
         <div id="lang-switch" style="display:flex;gap:6px;">
           <button type="button" data-lang="zh">中文</button>
           <button type="button" data-lang="en">English</button>
           <button type="button" data-lang="ja">日本語</button>
         </div>
+      </div>
+      <!-- Server connection (IE9-compatible, no persistence). Address = beatmaps dir. -->
+      <div class="modal-row" style="align-items:center;">
+        <label data-i18n="srvLabel" style="margin-right:8px;">服务器</label>
+        <input type="text" id="srv-url" placeholder="https://host/beatmaps" spellcheck="false"
+               style="-ms-flex:1 1 auto;flex:1 1 auto;min-width:0;padding:6px 8px;background:#05070d;border:1px solid rgba(6,182,212,0.3);border-radius:6px;color:#e2e8f0;font-family:inherit;font-size:12px;">
+        <button type="button" class="btn-tool" id="btn-srv-connect" data-i18n="srvConnect" style="margin-left:8px;">连接</button>
       </div>
       <div class="modal-actions">
         <button class="btn-tool" id="btn-settings-close" data-i18n="setClose">关闭</button>
@@ -445,7 +456,7 @@ if (!Object.assign) {
       settings: '设置', editor: '导入和编辑', switchFull: '切换完整版',
       autoplay: 'Auto-Play',
       setTitle: '设置', setSpeed: '下落速度', setSize: '音符缩放', setRender: '渲染距离',
-      setOffset: '音频偏移', setProj: '判定框浮现', setMusic: '音乐音量', setSfx: '音效音量', setClose: '关闭',
+      setOffset: '音频偏移', setProj: '判定框浮现', setMusic: '音乐音量', setSfx: '音效音量', setCompat: '兼容模式', setClose: '关闭',
       edTitle: '导入和编辑', edHint: '粘贴 JSON 格式的谱面。结构：{ metadata: {...}, notes: [...] }。notes 支持 type: tap / touch / slide（slide 带 nodes 数组）。',
       edImportChart: '导入谱面', edImportAudio: '导入音频', edLoad: '加载谱面', edClose: '关闭',
       resultAcc: 'Accuracy', resultRetry: '重试', resultBack: '返回菜单',
@@ -453,14 +464,15 @@ if (!Object.assign) {
       backUp: '← 返回上一级', backAlbum: '返回专辑列表', diff: '难度 ',
       errImport: '不支持文件导入', errAudioDecode: '音频解码失败（请尝试MP3格式）',
       errRead: '读取失败', errDecode: '解码失败', errAudioLoad: '音频加载失败', errNet: '网络错误',
-      lang: '语言', songsSuffix: '首'
+      lang: '语言', songsSuffix: '首',
+      srvLabel: '服务器', srvConnect: '连接', srvConnecting: '连接中...', srvOk: '已连接', srvFail: '连接失败'
     },
     en: {
       pause: 'Pause', paused: 'Paused', resume: 'Resume', restart: 'Restart', backMenu: 'Back to Menu',
       settings: 'Settings', editor: 'Import & Edit', switchFull: 'Switch to Full',
       autoplay: 'Auto-Play',
       setTitle: 'Settings', setSpeed: 'Scroll Speed', setSize: 'Note Scale', setRender: 'Render Distance',
-      setOffset: 'Audio Offset', setProj: 'Hitbox Lead', setMusic: 'Music Volume', setSfx: 'SFX Volume', setClose: 'Close',
+      setOffset: 'Audio Offset', setProj: 'Hitbox Lead', setMusic: 'Music Volume', setSfx: 'SFX Volume', setCompat: 'Compat Mode', setClose: 'Close',
       edTitle: 'Import & Edit', edHint: 'Paste a JSON chart. Structure: { metadata: {...}, notes: [...] }. notes support type: tap / touch / slide (slide carries a nodes array).',
       edImportChart: 'Import Chart', edImportAudio: 'Import Audio', edLoad: 'Load Chart', edClose: 'Close',
       resultAcc: 'Accuracy', resultRetry: 'Retry', resultBack: 'Back to Menu',
@@ -468,14 +480,15 @@ if (!Object.assign) {
       backUp: '← Back', backAlbum: 'Back to album list', diff: 'Diff ',
       errImport: 'File import unsupported', errAudioDecode: 'Audio decode failed (try MP3)',
       errRead: 'Read failed', errDecode: 'Decode failed', errAudioLoad: 'Audio load failed', errNet: 'Network error',
-      lang: 'Language', songsSuffix: ' songs'
+      lang: 'Language', songsSuffix: ' songs',
+      srvLabel: 'Server', srvConnect: 'Connect', srvConnecting: 'Connecting...', srvOk: 'Connected', srvFail: 'Connect failed'
     },
     ja: {
       pause: '一時停止', paused: '停止中', resume: '再開', restart: '最初から', backMenu: 'メニューへ戻る',
       settings: '設定', editor: 'インポートと編集', switchFull: '完全版へ',
       autoplay: 'Auto-Play',
       setTitle: '設定', setSpeed: '落下速度', setSize: 'ノーツ倍率', setRender: '描画距離',
-      setOffset: '音声オフセット', setProj: '判定枠リード', setMusic: '音楽音量', setSfx: '効果音量', setClose: '閉じる',
+      setOffset: '音声オフセット', setProj: '判定枠リード', setMusic: '音楽音量', setSfx: '効果音量', setCompat: '互換モード', setClose: '閉じる',
       edTitle: 'インポートと編集', edHint: 'JSON 譜面を貼り付け。構造: { metadata: {...}, notes: [...] }。notes は type: tap / touch / slide に対応（slide は nodes 配列を持つ）。',
       edImportChart: '譜面をインポート', edImportAudio: '音声をインポート', edLoad: '譜面を読込', edClose: '閉じる',
       resultAcc: '精度', resultRetry: 'リトライ', resultBack: 'メニューへ戻る',
@@ -483,7 +496,8 @@ if (!Object.assign) {
       backUp: '← 上へ戻る', backAlbum: 'アルバム一覧へ', diff: '難易度 ',
       errImport: 'ファイル入力非対応', errAudioDecode: '音声デコード失敗（MP3を試してください）',
       errRead: '読取り失敗', errDecode: 'デコード失敗', errAudioLoad: '音声読込失敗', errNet: 'ネットワークエラー',
-      lang: '言語', songsSuffix: '曲'
+      lang: '言語', songsSuffix: '曲',
+      srvLabel: 'サーバー', srvConnect: '接続', srvConnecting: '接続中...', srvOk: '接続済み', srvFail: '接続失敗'
     }
   };
   var LANG_KEY = 'poluxis-lite-lang';
@@ -1078,6 +1092,9 @@ if (!Object.assign) {
     this.bgmSource = null; this.synthInterval = null; this.synthBpm = 140;
     this.startTime = 0; this.pauseTime = 0; this.isPlaying = false;
     this.userOffset = 0; this.leadInTime = 0; this.musicVolume = 0.8; this.effectVolume = 0.9;
+    /* 兼容模式：谱面时钟改用 performance.now() 锚定的墙钟（而非 ctx.currentTime），
+     * 使低帧率 / 音频卡顿时谱面仍平滑推进，不随音频定格。音频照常播放，但不再锁住谱面。 */
+    this.compatMode = false; this.chartWallMs = 0;
     this.hasUploadedAudio = false; this.forceSynth = false; this.bgmBuffer = null;
     this.hitSoundBuffers = {}; this.useOscFallback = false; this.disabled = false;
     /* HTML5 fallback (IE11): when true, BGM plays via <audio> element. */
@@ -1263,6 +1280,7 @@ if (!Object.assign) {
     o1.onended = function () { try { o1.disconnect(); o2.disconnect(); g.disconnect(); } catch (e) {} };
   };
   LiteAudio.prototype.setOffset = function (sec) { this.userOffset = sec; };
+  LiteAudio.prototype.setCompatMode = function (enabled) { this.compatMode = !!enabled; };
   /* Load an uploaded audio file (mp3/wav/ogg). Mirrors AudioManager.loadAudioFile.
    * Three code paths for maximum browser compatibility:
    *   1. HTML5 fallback (IE11, no Web Audio API): blob URL → <audio> element.
@@ -1430,6 +1448,11 @@ if (!Object.assign) {
      * buffer cannot start before its first sample; clamping consistently
      * (clock anchor and buffer start both use offsetSec) keeps them in sync. */
     var offsetSec = Math.max(0, (startChartSec || 0) - this.userOffset);
+    /* 兼容模式：锚定墙钟，使 getCurrentTime() 在 compat 下读到
+     * (offsetSec - leadInSec) + userOffset，并与 Web Audio 路径一致。
+     * 必须放在 offsetSec 求定之后——否则 offsetSec 为 undefined，
+     * chartWallMs=NaN，getCurrentTime() 返回 NaN，谱面直接定格。 */
+    if (this.compatMode) this.chartWallMs = now() - (offsetSec - leadInSec) * 1000;
     var self = this;
     if (this.useHtml5) {
       this.stop();
@@ -1486,6 +1509,9 @@ if (!Object.assign) {
   };
   LiteAudio.prototype.getCurrentTime = function () {
     if (!this.isPlaying) return this.pauseTime;
+    /* 兼容模式：谱面时钟走 performance.now() 墙钟，与音频解耦，避免音频
+     * 卡顿/低帧率时谱面跟着定格。userOffset 已在 chartWallMs 锚定中体现。 */
+    if (this.compatMode) return (now() - this.chartWallMs) / 1000 + this.userOffset;
     if (this.useHtml5) {
       /* Prefer audioEl.currentTime (actual playback position) over wall clock
        * for accuracy. Fall back to wall clock if no audio element (silent mode).
@@ -1568,7 +1594,7 @@ if (!Object.assign) {
   function resize() {
     var w = canvas.clientWidth || window.innerWidth;
     var h = canvas.clientHeight || window.innerHeight;
-    view.dpr = window.devicePixelRatio || 1;
+    view.dpr = 1;
     view.w = w; view.h = h; view.aspect = w / h;
     view.cd = fitCameraDistance(view.aspect);
     view.pxPerUnit = h / (2 * TAN_HALF_FOV * view.cd); /* world→px at z=0 */
@@ -1834,7 +1860,8 @@ if (!Object.assign) {
     renderDist: 70,
     sizeScale: 1.0,
     musicVolume: 0.8,
-    effectVolume: 0.9
+    effectVolume: 0.9,
+    compatMode: false
   };
   try {
     var saved = window.localStorage && localStorage.getItem('poluxis-lite-settings');
@@ -1844,6 +1871,7 @@ if (!Object.assign) {
         settings[sk] = parsed[sk];
     }
   } catch (e) { /* private mode / old browser — keep defaults */ }
+  audio.setCompatMode(settings.compatMode);
   function saveSettings() {
     try { window.localStorage && localStorage.setItem('poluxis-lite-settings', JSON.stringify(settings)); } catch (e) {}
   }
@@ -3034,10 +3062,106 @@ if (!Object.assign) {
     } catch (e) { onError && onError(e); }
   }
 
-  /* Load beatmaps.json manifest. Includes built-in DEMO_CHARTS as "Built-in" album. */
+  /* === Server connection (IE9-compatible, mirrors full version) ===
+   * 服务器地址 = 谱面所在目录（baseUrl）。连接时依次尝试 baseUrl/beatmaps.json、
+   * baseUrl/manifest.json，都失败才失败。清单内相对路径（chartFile/audio/cover）
+   * 按 baseUrl 重写为绝对地址。连接成功后**替换**当前谱面列表（仅保留内置 DEMO）。
+   * 不持久化（刷新即失效）。输入框留空 = 使用默认地址（当前部署的 beatmaps 目录）。 */
+  var currentServerBase = null; /* 当前服务器基地址（用于重写相对路径） */
+
+  /* 把清单内的相对路径按当前服务器基地址重写为绝对地址；已是绝对 URL 原样返回。
+   * 未连接自定义服务器时（currentServerBase 为初始默认目录）也正确工作。 */
+  function resolveServerUrl(u) {
+    if (!u) return u;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(u)) return u;  /* http/https/blob/idb 等绝对 */
+    if (u.indexOf('//') === 0) return u;           /* 协议相对 //host */
+    if (currentServerBase) return currentServerBase + '/' + u.replace(/^\//, '');
+    return '../beatmaps/' + u;                     /* 兜底（通常不会走到） */
+  }
+
+  /* 默认服务器地址：当前部署的 beatmaps 目录。
+   * lite 版挂在 /lite/ 子目录下，谱面目录在其上一级 /beatmaps。
+   * 基于页面路径推导：去掉末尾的 index.html 与 lite 一级后拼 beatmaps。 */
+  function defaultServerBaseUrl() {
+    var path = location.pathname || '/';
+    if (path.slice(-10) === 'index.html') path = path.slice(0, -10);
+    if (path.slice(-1) === '/') path = path.slice(0, -1);
+    /* 若末尾是 /lite，去掉一级目录 */
+    if (path.slice(-5) === '/lite') path = path.slice(0, -5);
+    if (!path) path = '';
+    return (location.protocol + '//' + location.host) + path + '/beatmaps';
+  }
+
+  /* 连接服务器：目录地址 → 依次尝试 beatmaps.json / manifest.json，成功后回调 items */
+  function loadServerManifest(baseUrl, onOk, onErr) {
+    var base = baseUrl.replace(/\/+$/, '');
+    var candidates = [base + '/beatmaps.json', base + '/manifest.json'];
+    var idx = 0;
+    var tryNext = function () {
+      if (idx >= candidates.length) { onErr && onErr(new Error(L('srvFail'))); return; }
+      var url = candidates[idx];
+      idx++;
+      loadJson(url, function (data) {
+        if (data && data.items) {
+          onOk && onOk(data.items);
+        } else {
+          tryNext(); /* 拿到但无 items → 试下一个候选 */
+        }
+      }, function () {
+        tryNext(); /* 请求失败 → 试下一个候选 */
+      });
+    };
+    tryNext();
+  }
+
+  /* 连接按钮文字反馈辅助：成功/失败写入按钮文字，恢复正常后恢复为"连接"。 */
+  function setSrvBtnText(text, ok) {
+    var srvBtn = document.getElementById('btn-srv-connect');
+    if (!srvBtn) return;
+    srvBtn.textContent = text;
+    srvBtn.disabled = false;
+    srvBtn.style.color = ok ? '#10b981' : '#ef4444';
+  }
+
+  /* 连接按钮：用目录地址获取清单并替换当前谱面列表（保留内置 DEMO）。
+   * 结果通过按钮文字反馈（避免 alert 在部分浏览器上阻塞不继续执行）。 */
+  function connectServer(inputUrl) {
+    var srvBtn = document.getElementById('btn-srv-connect');
+    if (srvBtn) { srvBtn.disabled = true; srvBtn.textContent = L('srvConnecting'); srvBtn.style.color = '#67e8f9'; }
+    loadServerManifest(inputUrl, function (items) {
+      currentServerBase = inputUrl.replace(/\/+$/, '');
+      var list = [];
+      /* 内置 DEMO 专辑保留在最前 */
+      var builtinSongs = [];
+      for (var k in DEMO_CHARTS) {
+        if (!DEMO_CHARTS.hasOwnProperty(k)) continue;
+        var ch = DEMO_CHARTS[k];
+        builtinSongs.push({
+          type: 'song', id: k, title: ch.metadata.title, artist: ch.metadata.artist,
+          bpm: ch.metadata.bpm, difficulties: [{ name: ch.metadata.difficulty, level: 0, chartFile: null }],
+          isBuiltin: true
+        });
+      }
+      list.push({ type: 'album', id: 'builtin', title: 'Built-in', artist: 'Various Artists', songs: builtinSongs });
+      /* 服务器谱面（不建独立文件夹，直接替换原有外部项） */
+      for (var i = 0; i < items.length; i++) list.push(items[i]);
+      manifestItems = list;
+      currentAlbumId = null;
+      buildMenu();
+      setSrvBtnText(L('srvOk'), true);
+    }, function (err) {
+      setSrvBtnText(L('srvFail'), false);
+    });
+  }
+
+  /* Load the default server manifest (current deployment's beatmaps dir).
+   * Includes built-in DEMO_CHARTS as "Built-in" album, then server items.
+   * 刚进游戏本质就是获取默认地址的谱面索引（与完整版一致）。 */
   function loadBeatmapsManifest(callback) {
-    loadJson('../beatmaps/beatmaps.json', function (data) {
-      var items = [];
+    var base = defaultServerBaseUrl();
+    currentServerBase = base;
+    loadServerManifest(base, function (items) {
+      var list = [];
       /* Built-in album first */
       var builtinSongs = [];
       for (var k in DEMO_CHARTS) {
@@ -3049,17 +3173,15 @@ if (!Object.assign) {
           isBuiltin: true
         });
       }
-      items.push({ type: 'album', id: 'builtin', title: 'Built-in', artist: 'Various Artists', songs: builtinSongs });
-      /* External items from beatmaps.json */
-      if (data && data.items && data.items.length) {
-        for (var i = 0; i < data.items.length; i++) items.push(data.items[i]);
-      }
-      manifestItems = items;
-      callback && callback(null, items);
+      list.push({ type: 'album', id: 'builtin', title: 'Built-in', artist: 'Various Artists', songs: builtinSongs });
+      /* Server items (replace external part) */
+      for (var i = 0; i < items.length; i++) list.push(items[i]);
+      manifestItems = list;
+      callback && callback(null, list);
     }, function (err) {
-      /* Failed to load beatmaps.json — just use built-in */
-      console.warn('[Lite] Failed to load beatmaps.json:', err);
-      var items = [];
+      /* Default server unreachable — just use built-in */
+      console.warn('[Lite] Failed to load default beatmaps manifest:', err);
+      var list = [];
       var builtinSongs = [];
       for (var k in DEMO_CHARTS) {
         if (!DEMO_CHARTS.hasOwnProperty(k)) continue;
@@ -3070,9 +3192,9 @@ if (!Object.assign) {
           isBuiltin: true
         });
       }
-      items.push({ type: 'album', id: 'builtin', title: 'Built-in', artist: 'Various Artists', songs: builtinSongs });
-      manifestItems = items;
-      callback && callback(null, items);
+      list.push({ type: 'album', id: 'builtin', title: 'Built-in', artist: 'Various Artists', songs: builtinSongs });
+      manifestItems = list;
+      callback && callback(null, list);
     });
   }
 
@@ -3113,9 +3235,9 @@ if (!Object.assign) {
       return;
     }
 
-    /* Show loading state */
+    /* Show loading state — resolve remote server URLs (serverBase) when present */
     loadingChart = true;
-    loadJson('../beatmaps/' + diff.chartFile, function (chart) {
+    loadJson(resolveServerUrl(diff.chartFile), function (chart) {
       loadingChart = false;
       if (!chart || !chart.metadata || !chart.notes) {
         alert(L('chartErrFormat'));
@@ -3183,7 +3305,7 @@ if (!Object.assign) {
       startBtn.textContent = L('loading');
       startBtn.disabled = true;
 
-      audio.loadAudioUrl('../beatmaps/' + songItem.audio, function () {
+      audio.loadAudioUrl(resolveServerUrl(songItem.audio), function () {
         startBtn.textContent = origBtnText;
         startBtn.disabled = false;
         startPlaying();
@@ -3367,6 +3489,7 @@ if (!Object.assign) {
       document.getElementById(map[i][0]).value = map[i][1];
       document.getElementById(map[i][2]).textContent = map[i][3](map[i][1]);
     }
+    try { document.getElementById('set-compat').checked = !!settings.compatMode; } catch (e) {}
     settingsModal.classList.add('active');
   }
   function closeSettings() { settingsModal.classList.remove('active'); }
@@ -3433,6 +3556,18 @@ if (!Object.assign) {
         });
       })(cfg[i][0], cfg[i][1], cfg[i][2], cfg[i][3], cfg[i][4]);
     }
+  })();
+  /* Compat-mode checkbox: 谱面改用 performance.now() 墙钟，与音频解耦（应对
+   * 部分现代浏览器音频时间不精确 / 低帧率时谱面随音频定格的问题）。 */
+  (function () {
+    var el = document.getElementById('set-compat');
+    function update() {
+      var on = !!el.checked;
+      settings.compatMode = on;
+      audio.setCompatMode(on);
+      saveSettings();
+    }
+    el.addEventListener('change', update);
   })();
 
   /* --- Chart editor (text JSON) --- */
@@ -3523,6 +3658,22 @@ if (!Object.assign) {
   document.getElementById('btn-pause-menu').onclick = showMenu;
   document.getElementById('btn-settings').onclick = openSettings;
   document.getElementById('btn-settings-close').onclick = closeSettings;
+  /* Server connection — input is prefilled with the default (current deployment)
+   * beatmaps dir; leaving it empty reconnects to the same default. */
+  var srvUrlInput = document.getElementById('srv-url');
+  if (srvUrlInput) srvUrlInput.value = defaultServerBaseUrl();
+  /* 玩家点击输入框时，把连接按钮文字恢复为"连接"（清除上次成功/失败反馈） */
+  if (srvUrlInput) {
+    srvUrlInput.onfocus = function () {
+      var srvBtn = document.getElementById('btn-srv-connect');
+      if (srvBtn) { srvBtn.textContent = L('srvConnect'); srvBtn.style.color = ''; srvBtn.disabled = false; }
+    };
+  }
+  document.getElementById('btn-srv-connect').onclick = function () {
+    var url = (srvUrlInput && srvUrlInput.value) ? srvUrlInput.value.replace(/^\s+|\s+$/g, '') : '';
+    if (!url) url = defaultServerBaseUrl(); /* 留空 = 默认 */
+    connectServer(url);
+  };
   document.getElementById('btn-editor').onclick = openEditor;
   document.getElementById('btn-editor-close').onclick = closeEditor;
   document.getElementById('btn-editor-load').onclick = loadChartFromEditor;

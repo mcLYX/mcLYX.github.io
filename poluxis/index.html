@@ -9,11 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-ZqZNXxcY.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/vendor-YcJ9UrQI.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-CKJBsZA4.css">
+    <script type="module" crossorigin src="./assets/index-BhgzAsk0.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-BTF3An-e.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Dn2-k4-f.css">
   <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
   <body class="bg-[#0a0d12] text-white overflow-hidden select-none font-['Inter',sans-serif]">
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+      // HarmonyOS 4（M99 内核）双指缩放手势兜底：user-scalable=no 与
+      // touch-action: pan-x pan-y 在该内核可能不生效，这里在 React 挂载前
+      // 用一个非被动 touchmove 监听器阻止多指手势（双指缩放/旋转）。
+      // 必须在 React 挂载前注册，故放在 index.html（passive:false 才能 preventDefault）。
+      (function () {
+        document.addEventListener('touchmove', function (e) {
+          if (e.touches && e.touches.length > 1) e.preventDefault();
+        }, { passive: false });
+      })();
+    </script>
   </body>
 </html>
