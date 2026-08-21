@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "items": [
+    {
+          "type": "song",
+          "id": "aq",
+          "title": "Astral Quantization",
+          "artist": "Dj Grimoire",
+          "bpm": 185,
+          "cover": "From_Arcaea/AQ/cover.jpg",
+          "accentColor": "#3c42cf",
+          "audio": "From_Arcaea/AQ/base.mp3",
+          "basePath": "From_Arcaea/AQ",
+          "difficulties": [
+            {
+              "name": "Easy",
+              "level": 10,
+              "chartFile": "From_Arcaea/AQ/0.json"
+            },
+            {
+              "name": "Normal",
+              "level": 12,
+              "chartFile": "From_Arcaea/AQ/1.json"
+            },
+            {
+              "name": "Hard",
+              "level": 15,
+              "chartFile": "From_Arcaea/AQ/2.json"
+            }
+          ]
+        },
+    {
+      "type": "album",
+      "id": "from_arcaea",
+      "title": "From Arcaea",
+      "artist": "Various Artists",
+      "cover": "From_Arcaea/cover.jpg",
+      "accentColor": "#3c4f84",
+      "basePath": "From_Arcaea",
+      "songs": [
+        {
+          "type": "song",
+          "id": "aq",
+          "title": "Astral Quantization",
+          "artist": "Dj Grimoire",
+          "bpm": 185,
+          "cover": "From_Arcaea/AQ/cover.jpg",
+          "accentColor": "#3c42cf",
+          "audio": "From_Arcaea/AQ/base.mp3",
+          "basePath": "From_Arcaea/AQ",
+          "difficulties": [
+            {
+              "name": "Easy",
+              "level": 10,
+              "chartFile": "From_Arcaea/AQ/0.json"
+            },
+            {
+              "name": "Normal",
+              "level": 12,
+              "chartFile": "From_Arcaea/AQ/1.json"
+            },
+            {
+              "name": "Hard",
+              "level": 15,
+              "chartFile": "From_Arcaea/AQ/2.json"
+            }
+          ]
+        },
+        {
+          "type": "song",
+          "id": "inkarusi",
+          "title": "inkar-usi",
+          "artist": "DIA",
+          "bpm": 102,
+          "cover": "From_Arcaea/Inkarusi/cover.jpg",
+          "accentColor": "#ab7352",
+          "audio": "From_Arcaea/Inkarusi/base.mp3",
+          "basePath": "From_Arcaea/Inkarusi",
+          "difficulties": [
+            {
+              "name": "Easy",
+              "level": 4,
+              "chartFile": "From_Arcaea/Inkarusi/0.json"
+            },
+            {
+              "name": "Normal",
+              "level": 6,
+              "chartFile": "From_Arcaea/Inkarusi/1.json"
+            },
+            {
+              "name": "Hard",
+              "level": 8,
+              "chartFile": "From_Arcaea/Inkarusi/2.json"
+            },
+            {
+              "name": "Insane",
+              "level": 13,
+              "chartFile": "From_Arcaea/Inkarusi/3.json"
+            }
+          ]
+        },
+        {
+          "type": "song",
+          "id": "lostdesire",
+          "title": "Lost Desire",
+          "artist": "Powerless feat.Sennzai",
+          "bpm": 170,
+          "cover": "From_Arcaea/LostDesire/cover.jpg",
+          "accentColor": "#cc1a40",
+          "audio": "From_Arcaea/LostDesire/base.mp3",
+          "basePath": "From_Arcaea/LostDesire",
+          "difficulties": [
+            {
+              "name": "Easy",
+              "level": 9,
+              "chartFile": "From_Arcaea/LostDesire/0.json"
+            },
+            {
+              "name": "Normal",
+              "level": 11,
+              "chartFile": "From_Arcaea/LostDesire/1.json"
+            },
+            {
+              "name": "Hard",
+              "level": 14,
+              "chartFile": "From_Arcaea/LostDesire/2.json"
+            }
+          ]
+        },
+        {
+          "type": "song",
+          "id": "sheriruth",
+          "title": "Sheriruth",
+          "artist": "Team Grimoire",
+          "bpm": 185,
+          "cover": "From_Arcaea/Sheriruth/cover.jpg",
+          "accentColor": "#b03d45",
+          "audio": "From_Arcaea/Sheriruth/base.mp3",
+          "basePath": "From_Arcaea/Sheriruth",
+          "difficulties": [
+            {
+              "name": "Easy",
+              "level": 7,
+              "chartFile": "From_Arcaea/Sheriruth/0.json"
+            },
+            {
+              "name": "Normal",
+              "level": 11,
+              "chartFile": "From_Arcaea/Sheriruth/1.json"
+            },
+            {
+              "name": "Hard",
+              "level": 14,
+              "chartFile": "From_Arcaea/Sheriruth/2.json"
+            }
+          ]
+        },
+        {
+      "type": "album",
+      "id": "fanmade",
+      "title": "Fanmade",
+      "artist": "Various Artists",
+      "cover": "From_Phigros/cover.jpg",
+      "accentColor": "#dc2634",
+      "basePath": "From_Phigros",
+      "songs": [
+        {
+          "type": "song",
+          "id": "verr_ckt",
+          "title": "Verrückt",
+          "artist": "Raimukun",
+          "bpm": 238,
+          "cover": "From_Phigros/Verrückt/cover.jpg",
+          "accentColor": "#fa0407",
+          "audio": "From_Phigros/Verrückt/base.mp3",
+          "basePath": "From_Phigros/Verrückt",
+          "difficulties": [
+            {
+              "name": "Hard",
+              "level": 14,
+              "chartFile": "From_Phigros/Verrückt/2.json"
+            }
+          ]
+        }
+      ]
+    }
+      ]
+    },
+    {
+      "type": "album",
+      "id": "from_deemo",
+      "title": "From Deemo",
+      "artist": "Various Artists",
+      "cover": "From_Deemo/cover.jpg",
+      "accentColor": "#cc7132",
+      "basePath": "From_Deemo",
+      "songs": [
+        {
+          "type": "song",
+          "id": "iktstk",
+          "title": "幾年月",
+          "artist": "Mili",
+          "bpm": 86,
+          "cover": "From_Deemo/IKTSTK/cover.jpg",
+          "accentColor": "#c0633e",
+          "audio": "From_Deemo/IKTSTK/base.mp3",
+          "basePath": "From_Deemo/IKTSTK",
+          "difficulties": [
+            {
+              "name": "Hard",
+              "level": 11,
+              "chartFile": "From_Deemo/IKTSTK/2.json"
+            },
+            {
+              "name": "New",
+              "level": 11,
+              "chartFile": "From_Deemo/IKTSTK/3.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "album",
+      "id": "from_phigros",
+      "title": "From Phigros",
+      "artist": "Various Artists",
+      "cover": "From_Phigros/cover.jpg",
+      "accentColor": "#dc2634",
+      "basePath": "From_Phigros",
+      "songs": [
+        {
+          "type": "song",
+          "id": "verr_ckt",
+          "title": "Verrückt",
+          "artist": "Raimukun",
+          "bpm": 238,
+          "cover": "From_Phigros/Verrückt/cover.jpg",
+          "accentColor": "#fa0407",
+          "audio": "From_Phigros/Verrückt/base.mp3",
+          "basePath": "From_Phigros/Verrückt",
+          "difficulties": [
+            {
+              "name": "Hard",
+              "level": 14,
+              "chartFile": "From_Phigros/Verrückt/2.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
