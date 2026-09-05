@@ -18,14 +18,14 @@ Package: com.mclyx.nobtaudioreconnect
 Name: NoBTAudioReconnect
 Description: Block BTAudioHALPlugin.bundle from loading to stop launchd (PID 1) busy loop (iOS 16.x, 鸣潮/异环)
 Author: mcLYX
-Maintainer：mcLYX
+Maintainer: mcLYX
 Section: Tweaks
 Depends: mobilesubstrate
 Architecture: iphoneos-arm64
 Version: 0.0.5
 Installed-Size: 152
 Filename: ./packages/com.mclyx.nobtaudioreconnect_0.0.5_iphoneos-arm64.deb
-Size: 3112
-SHA256: 5c78cad2f9848808dd083500d25b2d2d94a4ba69c775b8aa2a6fe06e59fea919
-MD5sum: 0567ee097613a7c47ea98aa008b154a6
+Size: 3106
+SHA256: 413eb31eecceb068c476731a1e4a4d38a87bdb3c6ea5bbf26877410e278620b1
+MD5sum: 8f716d4376d656cc2736efcf5555a81b
 
