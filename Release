@@ -1,0 +1,9 @@
+Origin: mcLYX‘s Repo
+Label: mcLYX‘s Repo
+Suite: stable
+Version: 1.0
+Codename: nbt
+Architectures: iphoneos-arm64
+Components: main
+Date: Sat, 05 Sep 2026 19:19:45 +0800
+Description: some useless shits

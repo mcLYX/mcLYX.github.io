@@ -1,0 +1,31 @@
+Package: com.mclyx.modelspoof
+Name: ModelSpoof
+Description: 自定义应用读取到的设备机型标识符（hw.machine）
+Maintainer: mcLYX
+Author: mcLYX
+Section: Tweaks
+Depends: firmware (>= 15.0), mobilesubstrate
+Icon: file:///var/jb/Library/PreferenceBundles/ModelSpoofPrefs.bundle/icon.png
+Architecture: iphoneos-arm64
+Version: 1.0.0
+Installed-Size: 500
+Filename: ./packages/com.mclyx.modelspoof_1.0.0_iphoneos-arm64.deb
+Size: 56534
+SHA256: ecf0fef9e258b959afcc5dff732c4c897a8f36ad1632b3d8270f08febf594cb8
+MD5sum: 7b4cb55daed1dc3a1ad73fdedab66d46
+
+Package: com.mclyx.nobtaudioreconnect
+Name: NoBTAudioReconnect
+Description: Block BTAudioHALPlugin.bundle from loading to stop launchd (PID 1) busy loop (iOS 16.x, 鸣潮/异环)
+Author: mcLYX
+Maintainer：mcLYX
+Section: Tweaks
+Depends: mobilesubstrate
+Architecture: iphoneos-arm64
+Version: 0.0.5
+Installed-Size: 152
+Filename: ./packages/com.mclyx.nobtaudioreconnect_0.0.5_iphoneos-arm64.deb
+Size: 3112
+SHA256: 5c78cad2f9848808dd083500d25b2d2d94a4ba69c775b8aa2a6fe06e59fea919
+MD5sum: 0567ee097613a7c47ea98aa008b154a6
+
