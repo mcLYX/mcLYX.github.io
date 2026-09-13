@@ -26,9 +26,9 @@ Architecture: iphoneos-arm64
 Version: 1.0.7
 Installed-Size: 628
 Filename: ./packages/com.mclyx.modelspoof_1.0.7_iphoneos-arm64.deb
-Size: 79806
-SHA256: 7cd1a3b169be66f45532659b8ea75c3750d4602a258098d67b87d912183681bd
-MD5sum: 48e7356786b1f7c8b634ff2173335050
+Size: 79838
+SHA256: c7eaae9a55c10e5d8b3f18ab94be0e4cd4a992fb42aaf692933a71b6e5e5089d
+MD5sum: ddd0924166f78503beb0f202050df8d0
 
 Package: com.mclyx.nobtaudioreconnect
 Name: NoBTAudioReconnect
