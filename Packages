@@ -1,3 +1,18 @@
+Package: com.mclyx.isfilter
+Name: iScreenFilter
+Description: 屏幕滤镜。可调饱和度、色温、亮度、对比度、RGB 通道与反色，并可按 App 生效。
+Maintainer: mcLYX
+Author: mcLYX
+Section: Tweaks
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate
+Architecture: iphoneos-arm64
+Version: 0.14.0
+Installed-Size: 812
+Filename: ./packages/com.mclyx.isfilter_0.14.0_iphoneos-arm64.deb
+Size: 162948
+SHA256: d365066b4f59e369dbdb21c6a971d13d4e18387fbbfc33fae79024d36f3900a3
+MD5sum: 6b533e65e511cf12a63a42ba235c554f
+
 Package: com.mclyx.modelspoof
 Name: ModelSpoof
 Description: 自定义应用读取到的设备机型标识符（hw.machine）
