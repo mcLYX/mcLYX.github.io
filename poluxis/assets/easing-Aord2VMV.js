@@ -1,0 +1,1 @@
+var t={linear:function(n){return n},"sine-in":function(n){return 1-Math.cos(n*Math.PI/2)},"sine-out":function(n){return Math.sin(n*Math.PI/2)},"sine-io":function(n){return(1-Math.cos(n*Math.PI))/2}};export{t as E};

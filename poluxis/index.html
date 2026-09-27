@@ -6,12 +6,9 @@
     <meta name="theme-color" content="#0b1120" />
     <title>Project:Poluxis - 简约风格3D音乐节奏游戏</title>
     <script src="./capability.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-FqlZCXlT.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/vendor-BTF3An-e.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-Dn2-k4-f.css">
+    <script type="module" crossorigin src="./assets/index-BcNrMcYY.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-t9z-yAXK.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Cu3nui_u.css">
   <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
   <body class="bg-[#0a0d12] text-white overflow-hidden select-none font-['Inter',sans-serif]">
     <div id="root"></div>
@@ -24,6 +21,99 @@
         document.addEventListener('touchmove', function (e) {
           if (e.touches && e.touches.length > 1) e.preventDefault();
         }, { passive: false });
+      })();
+      // iOS（Safari / WKWebView）捏合缩放兜底：body 的 touch-action: pan-x pan-y
+      // 已禁 pinch，但 WebView 自身的 pinch 手势仍可能缩放整页。Safari 专有
+      // gesturestart/change/end 事件可被 preventDefault 拦下；其它内核不派发这些
+      // 事件，加了无副作用。
+      (function () {
+        ['gesturestart', 'gesturechange', 'gestureend'].forEach(function (t) {
+          document.addEventListener(t, function (e) { e.preventDefault(); }, { passive: false });
+        });
+      })();
+      // iOS（Safari / WKWebView）整页"橡皮筋"兜底。
+      // html/body 已经 position:fixed + overflow:hidden，文档本身不可滚动，但
+      // 它们仍保留 `touch-action: pan-x pan-y`，iOS 会把落在**静态区域**的拖拽
+      // 判定成一次滚动手势：文档滚不动时它会继续向上找可滚动祖先——Toy 容器
+      // 把页面放进 iframe 时那就是外层宿主文档，于是整个游戏被拖出屏幕、露出
+      // 外层白色底，松手回弹。（根滚动容器上的 overscroll-behavior 在 Safari
+      // 上并不可靠。）
+      // 做法：在 touchstart 时记下触点沿途是否有能滚动的容器，touchmove 时按
+      // 手势方向判断——没有对应方向的可滚动容器就 preventDefault，让这次手势
+      // 不再被当成滚动；有则原样放行给内层滚动（选歌卡片横滑、设置弹窗、编辑
+      // 器侧栏等）。
+      (function () {
+        var startX = 0, startY = 0, axis = 0, canX = false, canY = false;
+        function canScroll(el, vertical) {
+          var s = window.getComputedStyle(el);
+          var o = vertical ? s.overflowY : s.overflowX;
+          if (o !== 'auto' && o !== 'scroll') return false;
+          return vertical
+            ? el.scrollHeight - el.clientHeight > 1
+            : el.scrollWidth - el.clientWidth > 1;
+        }
+        function inFormControl(el) {
+          while (el && el.nodeType === 1) {
+            var tag = el.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable) return true;
+            el = el.parentNode;
+          }
+          return false;
+        }
+        document.addEventListener('touchstart', function (e) {
+          var t = e.touches[0];
+          if (!t) return;
+          startX = t.clientX; startY = t.clientY; axis = 0;
+          canX = canY = false;
+          if (inFormControl(e.target)) { canX = canY = true; return; } // 输入框内的选区拖拽不拦
+          var el = e.target;
+          while (el && el.nodeType === 1) {
+            var s = window.getComputedStyle(el);
+            // touch-action: none 的元素（画布、拖拽手柄等）浏览器本来就不会
+            // 把它当滚动，再 preventDefault 反而会触发 pointercancel 打断
+            // 正在进行的拖拽 —— 直接放行。
+            if (s.touchAction === 'none') { canX = canY = true; break; }
+            if (!canX && canScroll(el, false)) canX = true;
+            if (!canY && canScroll(el, true)) canY = true;
+            if (canX && canY) break;
+            el = el.parentNode;
+          }
+        }, { passive: true });
+        document.addEventListener('touchmove', function (e) {
+          if (e.touches.length > 1) { e.preventDefault(); return; }
+          var t = e.touches[0];
+          if (!t) return;
+          if (!axis) {
+            var dx = t.clientX - startX, dy = t.clientY - startY;
+            if (Math.abs(dx) > 6 || Math.abs(dy) > 6) axis = Math.abs(dy) > Math.abs(dx) ? 2 : 1;
+          }
+          var ok = axis === 2 ? canY : (axis === 1 ? canX : (canX || canY));
+          if (!ok && e.cancelable) e.preventDefault();
+        }, { passive: false });
+      })();
+    </script>
+    <script>
+      // 启动看门狗：capability.js 只能覆盖"已知"的语法 / 接口门槛，这里兜住未知缺口。
+      // 若模块脚本加载或解析失败（老浏览器不支持产物语法、资源被拦截、CSP 等），
+      // 或超过时限仍未启动，就复用 capability.js 的兜底卡片提示。
+      // 好处：不需要预先知道"从哪个 Chrome 版本开始才行"也能优雅降级。
+      (function () {
+        var BOOT_TIMEOUT = 15000;
+        function booted() { return !!window.__POLUXIS_BOOTED__; }
+        function fail(reason) {
+          if (booted() || window.__POLUXIS_FALLBACK_DONE__) return;
+          window.__POLUXIS_FALLBACK_DONE__ = true;
+          if (typeof window.__POLUXIS_FALLBACK__ === 'function') window.__POLUXIS_FALLBACK__(reason);
+        }
+        // 资源（module script / CSS）加载或解析错误不会冒泡到 window 的常规
+        // error 处理，必须在捕获阶段监听，且以 e.target 是否为元素来判定。
+        window.addEventListener('error', function (e) {
+          if (e && e.target && e.target.nodeType === 1) {
+            var tag = e.target.tagName;
+            if (tag === 'SCRIPT' || tag === 'LINK') fail('boot_failed');
+          }
+        }, true);
+        window.setTimeout(function () { if (!booted()) fail('boot_failed'); }, BOOT_TIMEOUT);
       })();
     </script>
   </body>
