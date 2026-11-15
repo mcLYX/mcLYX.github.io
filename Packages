@@ -21,12 +21,12 @@ Author: mcLYX
 Section: Tweaks
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate
 Architecture: iphoneos-arm64
-Version: 0.16.0
-Installed-Size: 864
-Filename: ./packages/com.mclyx.isfilter_0.16.0_iphoneos-arm64.deb
-Size: 178414
-SHA256: c8625db7fdf62b0553138eb83f046f1f3e6224fd47f4a42c42cf0d77df4f20ef
-MD5sum: c146396440e3543c7ccefcdebfdca420
+Version: 0.17.0
+Installed-Size: 848
+Filename: ./packages/com.mclyx.isfilter_0.17.0_iphoneos-arm64.deb
+Size: 177614
+SHA256: 8b94a8c5a68e3223c024bcdebaa555d137227ed2d4bbd1f5c7207c2adf7bc519
+MD5sum: 2d05d6307500be52a8e4a34af3a5c55d
 
 Package: com.mclyx.modelspoof
 Name: ModelSpoof
